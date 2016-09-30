@@ -1,0 +1,167 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red46\green174\blue187;\red193\green101\blue28;\red200\green20\blue201;
+\red180\green36\blue25;\red64\green11\blue217;\red107\green0\blue1;\red234\green234\blue234;\red0\green0\blue0;
+\red223\green223\blue223;\red220\green0\blue5;\red74\green0\blue255;}
+\margl1440\margr1440\vieww15160\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs22 \cf2 \CocoaLigature0 selection\cf0 =\
+\
+\
+\cf3 until [\cf0  \cf3 "\cf4 $selection\cf3 "\cf0  \cf3 =\cf0  \cf5 "0"\cf0  \cf3 ]; do\cf0 \
+      \cf3 echo\cf5  \cf3 ""\cf0 \
+      \cf3 echo\cf5  \cf3 "\cf5 PROGRAM MENU\cf3 "\cf0 \
+      \cf3 echo\cf5  \cf3 "\cf5 1 - display free disk spcae\cf3 "\cf0 \
+      \cf3 echo\cf5  \cf3 "\cf5 2 - display free memory\cf3 "\cf0 \
+      \cf3 echo\cf5  \cf3 ""\cf0 \
+      \cf3 echo\cf5  \cf3 "\cf5 0 - exit program\cf3 "\cf0 \
+      \cf3 echo\cf5  -n \cf3 "\cf5 Enter selection: \cf3 "\cf0 \
+      \cf3 read\cf0  selection\
+      \cf3 echo\cf5  \cf3 ""\cf0 \
+      \cf3 case\cf0  \cf4 $selection\cf0  \cf3 in\cf0 \
+      1\cf3 )\cf0  df \cf3 ;;\cf0 \
+      2\cf3 )\cf0  free \cf3 ;;\cf0 \
+      0\cf3 )\cf0  \cf3 exit\cf0  \cf3 ;;\cf0 \
+      *\cf3 )\cf0  \cf3 echo\cf5  \cf3 "\cf5 Please enter a valid selection\cf3 "\cf0 \
+\cf3 esac\cf0 \
+\
+\cf3 done\cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 #!/bin/bash\cf0 \
+\
+\
+\cf6 #seq-program for lab 4 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 selection\cf0 =\
+\
+\
+\cf3 until [\cf0  \cf3 "\cf4 $selection\cf3 "\cf0  \cf3 =\cf0  \cf5 "0"\cf0  \cf3 ]; do\cf0 \
+cat \cf3 <<seq-pro\cf0 \
+\cf5 ************************************************************\cf0 \
+\cf5 PROGRAM MENU\cf0 \
+\cf5 1 - Add sequence to file \cf0 \
+\cf5 2 - View file contents on the screen \cf0 \
+\cf5       \cf0 \
+\cf5 0 - exit program\cf0 \
+\cf5 ***********************************************************\cf0 \
+\cf3 seq-pro\cf0 \
+\
+      \cf3 echo\cf5  -n \cf3 "\cf5 Enter selection: \cf3 "\cf0 \
+      \cf3 read\cf0  selection\
+      \cf3 echo\cf5  \cf3 ""\
+      echo -n \'93Enter Existing filename to manage:\'94\
+      read file \
+      cat $file \
+      \cf0 \
+      1\cf3 )\cf0  echo -n \'93Add sequence to program:\'94\
+         read sequence\
+         \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec7 \'93$sequence\'94\cf9 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec9  >> \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 seq-program.sh \cf3 ;;\cf0 \
+      2\cf3 )\cf0  cat seq-program.sh \cf3 ;;\cf0 \
+      0\cf3 )\cf0  \cf3 exit\cf0  \cf3 ;;\cf0 \
+      *\cf3 )\cf0  \cf3 echo\cf5  \cf3 "\cf5 Please enter a valid selection\cf3 "\cf0 \
+\cf3 esac\cf0 \
+\
+\cf3 done\cf0 \
+"menu_here.sh" 30L, 566C                                                                              30,4          All\
+\
+\
+  \cf3 case\cf0  \cf4 $selection\cf0  \cf3 in\
+\
+\
+\cf0  \cf3 echo\cf5  -n \cf3 "\cf5 Enter selection: \cf3 "\cf0 \
+      \cf3 read\cf0  selection\
+      \cf3 echo\cf5  \cf3 ""\cf0 \
+      \cf3 echo\cf5  -n \'93Enter Existing filename to manage: \cf3 "\cf0 \
+\cf5       read file \cf0 \
+\cf5       if [ -f \cf3 "\cf4 $file\cf3 "\cf5  ]; then\cf0 \
+\cf5          echo -n \cf3 "\cf5 file exists, enter the sequence or view contents.\cf3 "\cf0 \
+\
+\cf5          1) echo -n \cf4 \'93\cf5 Add sequence to program: \cf3 "\cf0 \
+         \cf3 read\cf0  sequence\
+         \'93\cf4 $sequence\cf0 \'94\cf3 >>\cf0 seq-program.sh \cf3 ;;\cf0 \
+         \cf5 2\cf10 \cb11 )\cf0 \cb1  cat seq-program.sh \cf3 ;;\cf0 \
+\
+      \cf3 else\cf0 \
+         \cf3 echo\cf5  -n \cf3 "\cf5 File does not exist, enter the correct file name or exit the program by entering 0\cf3 "\cf0 \
+         \cf5 0\cf10 \cb11 )\cf0 \cb1  \cf3 exit;;\cf0 \
+         *\cf10 \cb11 )\cf0 \cb1  \cf3 echo\cf5  \cf3 "\cf5 Please enter a valid selection. \cf3 "\cf0 \
+     \cf10 \cb11 esac\cf0 \cb1 \
+\
+\
+\
+\cf3 done\cf0 \
+\
+\cf3 if [\cf0  \cf4 $(\cf3 (\cf4 num1 % \cf5 2\cf3 )\cf4 )\cf0  \cf3 -eq\cf0  \cf5 0\cf3 ]\cf0  \cf3 ;\cf0  \cf3 then\cf0 \
+     \cf3 echo\cf5  \cf3 "\cf5 fiRST number is even\cf3 "\cf0 \
+\cf3 else\cf0 \
+    \cf3 echo\cf5  \cf3 "\cf5 First number is odd\cf3 "\cf0 \
+\cf3 fi\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf12 ~                         \
+\
+\
+\
+\
+\
+\
+\
+THIS CODE WORKS PARTIALLY\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 #!/bin/bash\cf0 \
+\
+\
+\cf6 #seq-program for lab 4 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 selection\cf0 =\
+\
+\
+\cf3 until [\cf0  \cf3 "\cf4 $selection\cf3 "\cf0  \cf3 =\cf0  \cf5 "0"\cf0  \cf3 ]; do\cf0 \
+cat \cf3 <<seq-pro\cf0 \
+\cf5 ************************************************************\cf0 \
+\cf5 PROGRAM MENU\cf0 \
+\cf5 1 - Add sequence to file \cf0 \
+\cf5 2 - View file contents on the screen \cf0 \
+\cf5       \cf0 \
+\cf5 0 - exit program\cf0 \
+\cf5 ***********************************************************\cf0 \
+\cf3 seq-pro\cf0 \
+\cf3 echo\cf5  -n \cf3 "\cf5 Enter selection: \cf3 "\cf0 \
+         \cf3 read\cf0  selection\
+         \cf3 echo\cf5  \cf3 ""\cf0 \
+         \cf3 echo\cf5  -n \cf3 "\cf5 Enter an existing file to manage: \cf3 "\cf0 \
+         \cf3 read\cf0  file\
+\
+         \cf3 if [\cf0  \cf3 -f\cf0  \cf3 "\cf5 (\cf4 $file\cf5 )\cf3 "\cf0  \cf3 ]\cf0  \cf3 ;\cf0  \cf3 then\cf0 \
+              \cf3 echo\cf5  -n \cf3 "\cf5 select 1 for adding a seq to file or select 2 to view file contents. \cf3 "\cf0 \
+              \cf3 case\cf0  \cf4 $selection\cf0  \cf3 in\cf0 \
+                  1\cf3 )\cf0  \cf3 echo\cf5  -n \cf3 "\cf5 Enter a sequence you want to add: \cf3 "\cf0 \
+                  \cf3 read\cf0  sequence\
+                  \cf3 "\cf4 $sequence\cf3 ">>\cf4 $file\cf0  \cf3 exit;;\cf0 \
+                  2\cf3 )\cf0  cat seq-program.sh \cf3 exit;;\cf0 \
+                  0\cf3 )\cf0  \cf3 exit ;;\cf0 \
+         \cf3 esac\cf0 \
+         \cf3 else\
+              case\cf0  \cf4 $selection\cf0  \cf3 in\cf0 \
+              \cf3 echo\cf5  -n \cf3 "\cf5 file does not exist. Please enter a valid file name or press 0 to exit program. \cf3 "\cf5     \cf0 \
+                  0\cf3 )\cf0  \cf3 exit ;;\cf0 \
+                  *\cf3 )\cf0  \cf3 echo\cf5  \cf3 "\cf5 Invalid selection. Please try again.\cf3 "\cf0 \
+                  \cf3 echo\cf5  \cf3 ""\cf0 \
+\
+         \cf3 esac\cf0 \
+         \cf3 fi\cf0 \
+\cf3 done\cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf12 ~                                                                                                                 \cf0 \
+"seq-program.sh" 45L, 1206C                                                                     32,22         All\
+\
+}
